@@ -1,0 +1,200 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Empleados",
+            "description": "Endpoints para la gestion de empleados"
+        }
+    ],
+    "paths": {
+        "/api/empleados/update": {
+            "put": {
+                "tags": [
+                    "Empleados"
+                ],
+                "summary": "Actualizacion de un empleado en particular",
+                "description": "Actualiza a un empleado en particular mediante su Id",
+                "operationId": "actualizarEmpleado",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Empleado"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/empleados/borrar/{idEmpleado}": {
+            "put": {
+                "tags": [
+                    "Empleados"
+                ],
+                "summary": "Borrado de un empleado en particular",
+                "description": "Borra a un empleado en particular mediante su Id",
+                "operationId": "borrarEmpleado",
+                "parameters": [
+                    {
+                        "name": "idEmpleado",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/empleados/create": {
+            "post": {
+                "tags": [
+                    "Empleados"
+                ],
+                "summary": "Generacion de uno o mas empleados",
+                "description": "Genera uno o mas empleados de acuerdo a la peticion que reciba",
+                "operationId": "creaerEmpleado",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Empleado"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/empleados/getEmpleados": {
+            "get": {
+                "tags": [
+                    "Empleados"
+                ],
+                "summary": "En lista los empleados",
+                "description": "En lista todos los empleados",
+                "operationId": "consultarEmpleados",
+                "responses": {
+                    "200": {
+                        "description": "Consulta satisfactoria",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Empleado"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Consulta no satisfactoria por motivo de errores",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Empleado": {
+                "type": "object",
+                "properties": {
+                    "idEmpleado": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "primerNombre": {
+                        "type": "string",
+                        "example": "Juan"
+                    },
+                    "segundoNombre": {
+                        "type": "string",
+                        "example": "Manuel"
+                    },
+                    "apellidoPaterno": {
+                        "type": "string",
+                        "example": "Trencillo"
+                    },
+                    "apellidoMaterno": {
+                        "type": "string",
+                        "example": "Samudio"
+                    },
+                    "edad": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 34
+                    },
+                    "sexo": {
+                        "type": "string",
+                        "example": "H"
+                    },
+                    "fechaNacimiento": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "puesto": {
+                        "type": "string",
+                        "example": "Developer Jr"
+                    }
+                },
+                "description": "Atributos de los Empleados"
+            }
+        }
+    }
+}

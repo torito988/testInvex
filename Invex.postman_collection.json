@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "bf4452af-5554-46b6-afe8-e9db3013b7eb",
+		"name": "Invex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3729055",
+		"_collection_link": "https://grey-spaceship-86509.postman.co/workspace/Team-Workspace~1ce42e50-a6fc-47fb-87b4-a8f77df88ecb/collection/3729055-bf4452af-5554-46b6-afe8-e9db3013b7eb?action=share&source=collection_link&creator=3729055"
+	},
+	"item": [
+		{
+			"name": "ListEmpleados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/getEmpleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"getEmpleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmpleado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/borrar/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"borrar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmpleado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"idEmpleado\": 2,\r\n        \"primerNombre\": \"Luis\",\r\n        \"segundoNombre\": null,\r\n        \"apellidoPaterno\": \"Prieto\",\r\n        \"apellidoMaterno\": null,\r\n        \"edad\": 30,\r\n        \"sexo\": null,\r\n        \"fechaNacimiento\": \"09-09-1988\",\r\n        \"puesto\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateEmpleados",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"primerNombre\": \"Manuel\",\r\n        \"segundoNombre\": null,\r\n        \"apellidoPaterno\": null,\r\n        \"apellidoMaterno\": \"Jimenez\",\r\n        \"edad\": 31,\r\n        \"sexo\": null,\r\n        \"fechaNacimiento\": \"10-09-1988\",\r\n        \"puesto\": \"Developer\"\r\n    },\r\n    {\r\n        \"primerNombre\": \"Luis\",\r\n        \"segundoNombre\": null,\r\n        \"apellidoPaterno\": \"Pato\",\r\n        \"apellidoMaterno\": \"Jimenez\",\r\n        \"edad\": 38,\r\n        \"sexo\": \"H\",\r\n        \"fechaNacimiento\": \"10-09-1988\",\r\n        \"puesto\": \"Developer Jr\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
